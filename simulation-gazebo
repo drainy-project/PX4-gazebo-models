@@ -24,6 +24,7 @@ def main():
     parser.add_argument('--overwrite', help='Overwrite existing model directories', required=False, default=False, action='store_true')
     parser.add_argument('--dryrun', help='Test in dryrun. Do not launch gazebo', required=False, default=False, action='store_true')
     parser.add_argument('--headless', help='Run Gazebo without GUI', required=False, default=False, action='store_true')
+    parser.add_argument('--refresh', help='Refresh model store path', required=False, default=True)
 
     args = parser.parse_args()
 
@@ -88,12 +89,20 @@ def main():
         os.system(f'rm {args.model_store}/resources.zip')
         os.system(f'rm -rf {args.model_store}/PX4-gazebo-models-main/')
 
+    if(args.refresh):
+        print('> Updating content in Model Store...')
+        pwd = os.getcwd()
+        os.system(f'cp -r {pwd}/worlds {args.model_store}')
+        os.system(f'cp -r {pwd}/models {args.model_store}')
+        os.system(f'cp -r {pwd}/server.config {args.model_store}')
+
+
     # Launch gazebo simulation
     print('> Launching gazebo simulation...')
     if not args.dryrun:
         cmd = f'GZ_SIM_RESOURCE_PATH={args.model_store}/models '
         # cmd += f'GZ_SIM_SYSTEM_PLUGIN_PATH={args.model_store}/plugins '
-        cmd += f'GZ_SIM_SERVER_CONFIG_PATH={args.model_store}/server.config '
+        # cmd += f'GZ_SIM_SERVER_CONFIG_PATH={args.model_store}/server.config '
         cmd += f'gz sim -r {args.model_store}/worlds/{args.world}.sdf'
 
         if args.headless:
