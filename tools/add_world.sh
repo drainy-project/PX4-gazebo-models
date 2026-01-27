@@ -4,7 +4,7 @@
 
 if [ $# -lt 2 ]; then
     echo "Usage: $0 <relative_path> <sdf_filename>"
-    echo "Example: $0 ../my_worlds my_world"
+    echo "Example: $0 ../world_pkg world"
     exit 1
 fi
 
