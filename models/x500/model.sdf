@@ -75,5 +75,25 @@
     <plugin filename="MotorFailurePlugin"
       name="gz::sim::systems::MotorFailureSystem">
     </plugin>
+    <plugin
+      filename="gz-sim-odometry-publisher-system"
+      name="gz::sim::systems::OdometryPublisher">
+      <odom_frame>odom</odom_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+    </plugin>
+    <plugin
+      filename="gz-sim-pose-publisher-system"
+      name="gz::sim::systems::PosePublisher">
+      <use_pose_vector_msg>true</use_pose_vector_msg>
+      <publish_nested_model_pose>true</publish_nested_model_pose>
+    </plugin>
+    <plugin filename="gz-sim-joint-state-publisher-system" 
+    name="gz::sim::systems::JointStatePublisher">
+      <topic>joint_states</topic>
+      <joint>rotor_0_joint</joint>
+      <joint>rotor_1_joint</joint>
+      <joint>rotor_2_joint</joint>
+      <joint>rotor_3_joint</joint>
+    </plugin> 
   </model>
 </sdf>
