@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="ouster_os1">
+    <link name="ouster_os1_link">
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.502</mass>
+        <inertia>
+          <ixx>0.0009080594249999999</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0009080594249999999</iyy>
+          <iyz>0</iyz>
+          <izz>0.0011049624</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0.029 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0435</radius>
+            <length>0.05835</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <pose>0 0 0 1.57 0 -1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>model://ouster_os1/meshes/ouster_os1.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
