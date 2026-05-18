@@ -506,9 +506,9 @@
       filename="gz-sim-pose-publisher-system"
       name="gz::sim::systems::PosePublisher">
       <publish_link_pose>true</publish_link_pose>
-      <publish_model_pose>true</publish_model_pose>
+      <publish_model_pose>false</publish_model_pose>
       <publish_sensor_pose>true</publish_sensor_pose>
-      <publish_visual_pose>true</publish_visual_pose>
+      <publish_visual_pose>false</publish_visual_pose>
       <publish_nested_model_pose>true</publish_nested_model_pose>
       <use_pose_vector_msg>true</use_pose_vector_msg>
       <static_publisher>true</static_publisher>
@@ -517,8 +517,10 @@
       filename="gz-sim-odometry-publisher-system"
       name="gz::sim::systems::OdometryPublisher">
       <dimensions>3</dimensions>
-      <odom_frame>niosh_11</odom_frame>
-      <robot_base_frame>drainy_0/base_link</robot_base_frame>
+      <!-- <odom_frame>niosh_11</odom_frame>
+      <robot_base_frame>drainy_0/base_link</robot_base_frame> -->
+      <odom_frame>odom</odom_frame>
+      <robot_base_frame>base_link</robot_base_frame>
     </plugin>
     <plugin filename="gz-sim-joint-state-publisher-system" 
     name="gz::sim::systems::JointStatePublisher">
