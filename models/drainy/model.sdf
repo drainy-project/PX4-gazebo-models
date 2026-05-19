@@ -520,7 +520,7 @@
       <!-- <odom_frame>niosh_11</odom_frame>
       <robot_base_frame>drainy_0/base_link</robot_base_frame> -->
       <odom_frame>odom</odom_frame>
-      <robot_base_frame>base_link</robot_base_frame>
+      <robot_base_frame>drainy_0</robot_base_frame>
     </plugin>
     <plugin filename="gz-sim-joint-state-publisher-system" 
     name="gz::sim::systems::JointStatePublisher">
@@ -593,7 +593,7 @@
     </include>
     <joint name="CameraJoint" type="fixed">
       <parent>base_link</parent>
-      <child>drainy_0/camera_link</child>
+      <child>camera_link</child>
     </joint>
 
   </model>
